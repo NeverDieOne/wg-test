@@ -23,8 +23,6 @@ def setup():
     # Random changes in DB
     randomize_entity(start_db)
 
-    return start_db, dumped_db
-
 
 def teardown():
     os.remove(os.getenv('DB_DUMP_NAME'))
