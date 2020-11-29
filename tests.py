@@ -25,6 +25,7 @@ def setup():
 
 
 def teardown():
+    # Чистим за собой БД
     os.remove(os.getenv('DB_DUMP_NAME'))
     os.remove(os.getenv('DB_NAME'))
 
