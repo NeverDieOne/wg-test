@@ -2,7 +2,6 @@ from db import DataBase
 import os
 from dotenv import load_dotenv
 from randomizer import randomize_entity
-from nose.tools import with_setup
 
 
 def make_message(name, object_, current, dumped):
@@ -32,7 +31,6 @@ def teardown():
     os.remove(os.getenv('DB_NAME'))
 
 
-@with_setup(setup)
 def test_ships():
     """Функция-генератор для проверки всех кораблей"""
     current_db = DataBase(os.getenv('DB_NAME'))
@@ -51,7 +49,6 @@ def test_ships():
         yield check_engine, ship_name, ship_engine, dumped_engine
 
 
-@with_setup(setup)
 def check_weapon(ship_name, current_weapon, dumped_weapon):
     """Проверка орудий корабля"""
     current_db = DataBase(os.getenv('DB_NAME'))
@@ -61,7 +58,6 @@ def check_weapon(ship_name, current_weapon, dumped_weapon):
     assert current_weapon == dumped_weapon, make_message(ship_name, current_weapon, current_weapon, dumped_weapon)
 
 
-@with_setup(setup)
 def check_hull(ship_name, current_hull, dumped_hull):
     """Проверка корпусов корабля"""
     current_db = DataBase(os.getenv('DB_NAME'))
@@ -71,7 +67,6 @@ def check_hull(ship_name, current_hull, dumped_hull):
     assert current_hull == dumped_hull, make_message(ship_name, current_hull, current_hull, dumped_hull)
 
 
-@with_setup(setup)
 def check_engine(ship_name, current_engine, dumped_engine):
     """Проверка двигателей корабля"""
     current_db = DataBase(os.getenv('DB_NAME'))
