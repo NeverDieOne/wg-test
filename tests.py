@@ -31,7 +31,7 @@ def teardown():
 
 
 def test_ships():
-    """Функция-генератор для проверки всех кораблей"""
+    """Тест для проверки всех кораблей"""
     current_db = DataBase(os.getenv('DB_NAME'))
     dumped_db = DataBase(os.getenv('DB_DUMP_NAME'))
 
